@@ -52,4 +52,12 @@ fn main() {
     
     rect1.set_width(20);
     Rectangle::set_width(&mut rect1, 30);
+    
+    let r = &mut Box::new(Rectangle {
+        width: 1,
+        height: 2,
+    });
+    let area3 = r.area();
+    let area4 = Rectangle::area(&**r);
+    assert_eq!(area3, area4);
 }
