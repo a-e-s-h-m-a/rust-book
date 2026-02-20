@@ -21,6 +21,13 @@ impl Rectangle {
     fn can_hold(&self, other: &Rectangle) -> bool {
         self.width > other.width && self.height > other.height
     }
+    
+    fn max(self, other: Rectangle) -> Rectangle {
+        Rectangle { 
+            width: self.width.max(other.width), 
+            height: self.height.max(other.height)
+        }
+    }
 }
 
 fn main() {
@@ -60,4 +67,7 @@ fn main() {
     let area3 = r.area();
     let area4 = Rectangle::area(&**r);
     assert_eq!(area3, area4);
+    
+    //------------- Methods and Ownership
+    
 }
